@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #2e2f42;
+    background-color: #ffffff;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.container {
+    max-width: 1158px;
+    margin: 0 auto;
+    padding: 36px 15px;
+}
+
+/* FORM */
+
+.form {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.form input {
+    width: 272px;
+    height: 40px;
+    padding: 8px 16px;
+
+    border: 1px solid #808080;
+    border-radius: 4px;
+
+    outline: transparent;
+
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+
+    transition: border-color 250ms ease;
+}
+
+.form input:hover {
+    border-color: #000000;
+}
+
+.form input:focus {
+    border-color: #4e75ff;
+}
+
+.submit-button {
+    min-width: 91px;
+    height: 40px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #4e75ff;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+
+    cursor: pointer;
+
+    transition: background-color 250ms ease;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+    background-color: #6c8cff;
+}
+
+/* GALLERY */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.gallery-item {
+    width: calc((100% - 48px) / 3);
+
+    border: 1px solid #808080;
+}
+
+.gallery-link {
+    display: block;
+}
+
+.gallery-image {
+    height: 200px;
+
+    object-fit: cover;
+}
+
+/* INFO */
+
+.img-info-list {
+    display: flex;
+    justify-content: space-around;
+
+    padding: 4px 20px;
+}
+
+.img-info-item {
+    text-align: center;
+}
+
+.info-type {
+    margin: 0;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.33;
+    letter-spacing: 0.04em;
+}
+
+.img-info {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+}
+
+/* LOADER */
+
+.loader {
+    width: 48px;
+    height: 48px;
+
+    border: 5px solid #4e75ff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+
+    display: none;
+    margin: 20px auto;
+
+    animation: rotation 1s linear infinite;
+}
+
+.loader.is-active {
+    display: block;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
