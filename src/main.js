@@ -14,7 +14,9 @@ const refs = {
   form: document.querySelector('.js-form'),
 };
 
-function onSearchFormSubmit(event) {
+let page = 1;
+
+async function onSearchFormSubmit(event) {
   event.preventDefault();
 
   const { target: searchForm } = event;
@@ -30,12 +32,14 @@ function onSearchFormSubmit(event) {
     return;
   }
 
+  page = 1;
+
   clearGallery();
 
   showLoader();
 
-  getImagesByQuery(userQuery)
-    .then(data => {
+  try {
+    const data = await getImagesByQuery(userQuery, page);
       if (data.hits.length === 0) {
         iziToast.error({
           message:
@@ -44,23 +48,20 @@ function onSearchFormSubmit(event) {
         });
 
         return;
-      }
+  }
 
-      createGallery(data.hits);
-    })
-
-    .catch(err => {
+  createGallery(data.hits);
+    } catch(err) {
       iziToast.error({
         message: err.message || 'Failed to load images!',
         position: 'topRight',
       });
-    })
-
-    .finally(() => {
+    } finally {
       hideLoader();
 
       searchForm.reset();
-    });
+    }
+
 }
 
 refs.form.addEventListener('submit', onSearchFormSubmit);
