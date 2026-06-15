@@ -62,7 +62,8 @@ img {
     border-color: #4e75ff;
 }
 
-.submit-button {
+.submit-button,
+.load-more-button {
     min-width: 91px;
     height: 40px;
 
@@ -83,8 +84,20 @@ img {
 }
 
 .submit-button:hover,
-.submit-button:focus {
+.submit-button:focus,
+.load-more-button:hover,
+.load-more-button:focus {
     background-color: #6c8cff;
+}
+
+.load-more-button {
+    display: none;
+    min-width: 125px;
+    
+}
+
+.load-more-button.is-active {
+    display: block;
 }
 
 /* GALLERY */
