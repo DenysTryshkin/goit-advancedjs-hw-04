@@ -93,6 +93,7 @@ img {
 .load-more-button {
     display: none;
     min-width: 125px;
+    margin: 32px auto 24px;
     
 }
 
